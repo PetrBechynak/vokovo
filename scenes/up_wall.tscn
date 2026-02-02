@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc3ovgxnngx6n"]
+
+[ext_resource type="Script" uid="uid://dswgml6eok4fy" path="res://scenes/up_wall.gd" id="1_glwg4"]
+[ext_resource type="Script" uid="uid://b0djgqf80i4of" path="res://scenes/uparea_3d.gd" id="1_ui5vg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wykyb"]
+size = Vector3(11, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvhfp"]
+size = Vector3(11, 3, 0.878906)
+
+[node name="upWall" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_glwg4")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_ui5vg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.055, 1, -0.04)
+mesh = SubResource("BoxMesh_wykyb")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -0.0605469)
+shape = SubResource("BoxShape3D_uvhfp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2, 1, -0.0605469)
+shape = SubResource("BoxShape3D_uvhfp")
+
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
+[connection signal="area_shape_entered" from="Area3D" to="Area3D" method="_on_area_shape_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="Area3D" to="Area3D" method="_on_body_shape_entered"]

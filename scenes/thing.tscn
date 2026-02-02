@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://ducl4pycqureo"]
+
+[ext_resource type="Script" uid="uid://bma77nr2hcv1e" path="res://thing.gd" id="1_kvgb1"]
+[ext_resource type="PackedScene" uid="uid://b6na6nq8crxpr" path="res://scenes/love_low_poly.glb" id="2_is60j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvhfp"]
+size = Vector3(11, 10.0753, 0.878906)
+
+[sub_resource type="Animation" id="Animation_mkur0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_is60j"]
+resource_name = "upanddown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.99),
+"transitions": PackedFloat32Array(1, 4.43828, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2005o"]
+_data = {
+&"RESET": SubResource("Animation_mkur0"),
+&"upanddown": SubResource("Animation_is60j")
+}
+
+[sub_resource type="Animation" id="Animation_bjb3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vn3bu"]
+resource_name = "rot"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.01, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2005o"]
+resource_name = "rotace"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e2iy8"]
+_data = {
+&"RESET": SubResource("Animation_bjb3o"),
+&"rot": SubResource("Animation_vn3bu"),
+&"rotace": SubResource("Animation_2005o")
+}
+
+[node name="thing" type="Node3D"]
+transform = Transform3D(-0.085, 0, 0, 0, -0.3, 0, 0, 0, -0.875, 0, -0.0187902, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, -1.1, -9.61651e-08, 0, 9.61651e-08, -1.1, 0, -1.23289, 0)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_kvgb1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1.00002, 0, 0, -1.86267e-09, 1, -1.18544, 3.57878, -0.0554478)
+shape = SubResource("BoxShape3D_uvhfp")
+
+[node name="Sketchfab_Scene" parent="Area3D" instance=ExtResource("2_is60j")]
+transform = Transform3D(0.286, 0, 0, 0, 0.09, 0, 0, 0, 0.025, 0, 3, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area3D/Sketchfab_Scene"]
+libraries = {
+&"": SubResource("AnimationLibrary_2005o")
+}
+autoplay = "upanddown"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Area3D/Sketchfab_Scene"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_e2iy8")
+}
+
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
+[connection signal="area_shape_entered" from="Area3D" to="Area3D" method="_on_area_shape_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="Area3D" to="Area3D" method="_on_body_shape_entered"]

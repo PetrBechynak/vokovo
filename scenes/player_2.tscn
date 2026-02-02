@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccaitecc7tqes"]
+
+[ext_resource type="Script" uid="uid://bcmw2i3v8gj0k" path="res://scenes/player_2.gd" id="1_l6tho"]
+[ext_resource type="PackedScene" uid="uid://dnmyg68n8g6h4" path="res://scenes/gun.tscn" id="2_s551d"]
+[ext_resource type="PackedScene" uid="uid://ccyjve7b3e2tj" path="res://guy.tscn" id="3_yjax8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6tho"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l6tho"]
+height = 2.70875
+
+[node name="Player2" type="CharacterBody3D" groups=["player", "player_2"]]
+transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, 0, 1, 0)
+script = ExtResource("1_l6tho")
+speed = 5.0
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_3vyb7")
+material = SubResource("StandardMaterial3D_l6tho")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.601992, 0)
+shape = SubResource("CapsuleShape3D_l6tho")
+
+[node name="Gun" parent="." groups=["player"] instance=ExtResource("2_s551d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109314, 0.62271, 0.852808)
+
+[node name="label" type="Label3D" parent="."]
+transform = Transform3D(2.98311, 0, 0.106206, 0, 2.985, 0, -0.106206, 0, 2.98311, 0, 2.51622, 0)
+text = "0
+"
+
+[node name="guy" parent="." instance=ExtResource("3_yjax8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.74921, 0)

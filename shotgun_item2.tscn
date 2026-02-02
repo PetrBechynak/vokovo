@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ao6n6su6i66"]
+
+[ext_resource type="Script" uid="uid://bd2phi7p2u4c" path="res://scenes/shotgun_item.gd" id="1_ehh2u"]
+[ext_resource type="PackedScene" uid="uid://dl8b2j60cqmyy" path="res://warhammer_40k_shotgun.glb" id="2_sgr2p"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_8uekg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u10sn"]
+size = Vector3(1.67242, 1, 1)
+
+[node name="ShotgunItem" type="Node3D"]
+script = ExtResource("1_ehh2u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PrismMesh_8uekg")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138824, 0, 0)
+shape = SubResource("BoxShape3D_u10sn")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_sgr2p")]
+transform = Transform3D(-0.0855968, 0, -2.99878, 0, 3, 0, 2.99878, 0, -0.0855968, 0.15925, 0, 0.137489)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsnhr4dpcay8u"]
+
+[ext_resource type="Script" uid="uid://6jxe23fk577v" path="res://prashoplate.gd" id="1_2y8xs"]
+[ext_resource type="Script" uid="uid://b6jyll2uc52cf" path="res://scenes/area_3d.gd" id="2_uk21t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a3yqn"]
+size = Vector3(1, 0.145, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uk21t"]
+size = Vector3(0.985474, 0.469729, 1)
+
+[node name="Prashoplate" type="Node3D"]
+script = ExtResource("1_2y8xs")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_uk21t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_a3yqn")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00726318, 0.149049, 0)
+shape = SubResource("BoxShape3D_uk21t")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
