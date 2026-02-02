@@ -1,56 +1,24 @@
-extends CharacterBody3D
+extends BasePlayer
 
-@export var speed: float = 10
-@export var health: float = 10
-@export var spawn: Marker3D
-@export var gravity: float = 30.0
-@onready var label: Label3D = $label
+func _get_forward_action() -> String:
+	return "foward2"
 
-func _ready() -> void:
-	label.text = str(health)
+func _get_back_action() -> String:
+	return "back2"
 
-var direction:= Vector3.ZERO
-var last_direction:= Vector3.FORWARD  
+func _get_left_action() -> String:
+	return "left2"
 
-func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("foward2"):
-		direction.z -= 1
-		rotation_degrees.y = 180
-	if Input.is_action_pressed("back2"):
-		direction.z += 1
-		rotation_degrees.y = 0
-	if Input.is_action_pressed("left2"):
-		direction.x -= 1
-		rotation_degrees.y = -90
-	if Input.is_action_pressed("right2"):
-		direction.x += 1
-		rotation_degrees.y = 90
+func _get_right_action() -> String:
+	return "right2"
+
+func _get_jump_action() -> String:
+	return "jump2"
+
+func _player_physics_process(delta: float) -> void:
 	if Input.is_action_pressed("escape"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if Input.is_action_pressed("jump2"):
-		position.y += 0.25
-	
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	else:
-		velocity.y = 0
-	
-	direction = direction.normalized()
-	
-	velocity.x = direction.x * speed
-	velocity.z = direction.z * speed
-	
-	move_and_slide()
-	if direction != Vector3.ZERO:
-		last_direction = direction
-	direction = Vector3.ZERO
-	
-	
-	
-	
-func modifyHealth(addHealth: float) -> void:
-	health += addHealth
-	printt("player_2: ", health)
-	if health < 0:
-		queue_free()
-	label.text = str(health)
+
+func _on_death() -> void:
+	printt("player_2: died")
+	queue_free()
