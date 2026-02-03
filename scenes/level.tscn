@@ -45,7 +45,7 @@ environment = SubResource("Environment_w7c3h")
 transform = Transform3D(-0.712828, -0.685945, 0.146135, 0.574144, -0.451075, 0.683294, -0.402784, 0.570974, 0.71537, 4.97952, 13.0937, 43.8568)
 shadow_enabled = true
 
-[node name="Player" parent="." groups=["player1", "player1or2"] instance=ExtResource("1_2q6dc")]
+[node name="Player1" parent="." groups=["player1", "player1or2"] instance=ExtResource("1_2q6dc")]
 transform = Transform3D(-0.0546561, -0.0281185, 1.05822, -0.0266208, 1.05933, 0.0267733, -1.05826, -0.0251955, -0.0553278, -3.61335, 0.375792, 0.101783)
 
 [node name="Camera3D2" type="Camera3D" parent="."]
@@ -55,6 +55,7 @@ script = ExtResource("5_klq6b")
 
 [node name="Player2" parent="." groups=["player1or2", "player2"] instance=ExtResource("2_w7c3h")]
 transform = Transform3D(0.0171336, -0.0253339, -1.07956, -0.0268618, 1.07935, -0.0257554, 1.07953, 0.0272597, 0.0164942, 0.0160754, 0.345314, -0.000463287)
+speed = 10.0
 
 [node name="Moving walls" type="Node3D" parent="."]
 

@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://cln4huebtnb8e"]
 
-[ext_resource type="Script" uid="uid://qv14y4tw51dc" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://qv14y4tw51dc" path="res://scripts/player_1.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dnmyg68n8g6h4" path="res://scenes/gun.tscn" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://ccyjve7b3e2tj" path="res://guy.tscn" id="3_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vyb7"]
-albedo_color = Color(1, 0, 1, 1)
+albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 radius = 0.77609
