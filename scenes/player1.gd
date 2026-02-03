@@ -40,7 +40,7 @@ func _physics_process(delta):
 	
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
-	
+
 	move_and_slide()
 	if direction != Vector3.ZERO:
 		last_direction = direction

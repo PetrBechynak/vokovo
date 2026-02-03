@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb37benwne3wl"]
+[gd_scene format=3 uid="uid://cb37benwne3wl"]
 
-[ext_resource type="PackedScene" uid="uid://b3ayjm0nb5gha" path="res://retro-futuristic_plasma_casette_shotgun (1).glb" id="1_dvola"]
+[ext_resource type="PackedScene" uid="uid://b3ayjm0nb5gha" path="res://scenes/retro-futuristic_plasma_casette_shotgun (1).glb" id="1_dvola"]
 
 [node name="Sketchfab_Scene" instance=ExtResource("1_dvola")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

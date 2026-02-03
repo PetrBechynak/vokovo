@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnmyg68n8g6h4"]
+[gd_scene format=3 uid="uid://dnmyg68n8g6h4"]
 
 [ext_resource type="Script" uid="uid://dehukf4i1qpwa" path="res://scenes/gun.gd" id="1_x77fm"]
 [ext_resource type="PackedScene" uid="uid://cyqdm4fyn4gsx" path="res://scenes/bullet.tscn" id="2_og67c"]
 [ext_resource type="PackedScene" uid="uid://bhs3txhkxfve1" path="res://super_simple_pistol.glb" id="3_gp1hk"]
-[ext_resource type="PackedScene" uid="uid://b3ayjm0nb5gha" path="res://retro-futuristic_plasma_casette_shotgun (1).glb" id="4_qd4js"]
+[ext_resource type="PackedScene" uid="uid://b3ayjm0nb5gha" path="res://scenes/retro-futuristic_plasma_casette_shotgun (1).glb" id="4_qd4js"]
 [ext_resource type="PackedScene" uid="uid://cb37benwne3wl" path="res://pumpshotgun.tscn" id="5_6b133"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6b133"]

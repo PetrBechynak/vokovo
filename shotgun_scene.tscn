@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://82ew551ht4n7"]
+[gd_scene format=3 uid="uid://82ew551ht4n7"]
 
-[ext_resource type="PackedScene" uid="uid://b3ayjm0nb5gha" path="res://retro-futuristic_plasma_casette_shotgun (1).glb" id="1_wx3xp"]
+[ext_resource type="PackedScene" uid="uid://b3ayjm0nb5gha" path="res://scenes/retro-futuristic_plasma_casette_shotgun (1).glb" id="1_wx3xp"]
 [ext_resource type="Script" uid="uid://b54eddrludral" path="res://area_3d.gd" id="2_fxgo2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fxgo2"]

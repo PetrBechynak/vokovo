@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drnn867ptxt7l"
-path.s3tc="res://.godot/imported/retro-futuristic_plasma_casette_shotgun (1)_2.png-d82cd780f0966f3e67e2670d7928547f.s3tc.ctex"
+path.s3tc="res://.godot/imported/retro-futuristic_plasma_casette_shotgun (1)_2.png-cdf771e8f6afecbce0a18f56919e6168.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,14 +14,16 @@ generator_parameters={
 
 [deps]
 
-source_file="res://retro-futuristic_plasma_casette_shotgun (1)_2.png"
-dest_files=["res://.godot/imported/retro-futuristic_plasma_casette_shotgun (1)_2.png-d82cd780f0966f3e67e2670d7928547f.s3tc.ctex"]
+source_file="res://scenes/retro-futuristic_plasma_casette_shotgun (1)_2.png"
+dest_files=["res://.godot/imported/retro-futuristic_plasma_casette_shotgun (1)_2.png-cdf771e8f6afecbce0a18f56919e6168.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=1
 compress/channel_pack=0
@@ -29,6 +31,10 @@ mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
 roughness/src_normal="res://retro-futuristic_plasma_casette_shotgun (1)_2.png"
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

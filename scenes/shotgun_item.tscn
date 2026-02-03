@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5751vv1idwpg"]
+[gd_scene format=3 uid="uid://c5751vv1idwpg"]
 
 [ext_resource type="Script" uid="uid://bd2phi7p2u4c" path="res://scenes/shotgun_item.gd" id="1_al86p"]
-[ext_resource type="PackedScene" uid="uid://b3ayjm0nb5gha" path="res://retro-futuristic_plasma_casette_shotgun (1).glb" id="2_u10sn"]
+[ext_resource type="PackedScene" uid="uid://b3ayjm0nb5gha" path="res://scenes/retro-futuristic_plasma_casette_shotgun (1).glb" id="2_u10sn"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_8uekg"]
 
