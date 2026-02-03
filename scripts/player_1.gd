@@ -1,4 +1,4 @@
-extends BasePlayer
+extends Player
 
 @onready var guy: Node3D = $"."
 var animation_tree : AnimationTree
