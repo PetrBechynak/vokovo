@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://bqfpla6opwltn"]
+[gd_scene format=3 uid="uid://cgopyhu7ny0bd"]
 
 [ext_resource type="Script" uid="uid://cl3plpplooptc" path="res://scenes/player_1.gd" id="1_lkt5g"]
-[ext_resource type="PackedScene" uid="uid://dnmyg68n8g6h4" path="res://scenes/gun.tscn" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://ccyjve7b3e2tj" path="res://guy.tscn" id="3_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
@@ -25,9 +24,6 @@ material = SubResource("StandardMaterial3D_3vyb7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=275714081]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.601992, 0)
 shape = SubResource("CapsuleShape3D_3vyb7")
-
-[node name="Gun" parent="." unique_id=208638505 instance=ExtResource("2_g2els")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109314, 0.62271, 0.852808)
 
 [node name="label" type="Label3D" parent="." unique_id=324481418]
 transform = Transform3D(3.89268, 0, -1.04304, 0, 4.03, 0, 1.04304, 0, 3.89268, 0, 2.44434, 0)
