@@ -9,9 +9,9 @@ func _ready() -> void:
 	animation_tree = guy.find_child("AnimationTree")
 
 func _physics_process(delta):
-	common_physics_process(delta, "foward2", "back2", "left2", "right2", "jump2")
+	common_physics_process(delta, "foward", "back", "left", "right", "jump")
 	if Input.is_action_pressed("escape"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE	
 	if velocity.length()>1:
 		animation_tree["parameters/StateMachine/conditions/run"] = true
 		animation_tree["parameters/StateMachine/conditions/idle"] = false

@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://c5iaq6340leun"]
 
-[ext_resource type="PackedScene" uid="uid://cln4huebtnb8e" path="res://scenes/player.tscn" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://dehq3uaexq1gj" path="res://scenes/level.gd" id="1_fpun6"]
 [ext_resource type="PackedScene" uid="uid://ccaitecc7tqes" path="res://scenes/player_2.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://bqfpla6opwltn" path="res://scenes/player_1.tscn" id="2_player1"]
 [ext_resource type="PackedScene" uid="uid://dsnhr4dpcay8u" path="res://scenes/prashoplate.tscn" id="3_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://s4joyh78r8s7" path="res://scenes/wall.tscn" id="3_w8frs"]
-[ext_resource type="Script" uid="uid://edq2xx25tutv" path="res://scenes/player1.gd" id="4_wc255"]
 [ext_resource type="Script" uid="uid://c2bt8opbl7vjx" path="res://scenes/camera_3d_2.gd" id="5_klq6b"]
 [ext_resource type="PackedScene" uid="uid://btpgm5d7w7c3x" path="res://scenes/moving_wall.tscn" id="6_2r41h"]
 [ext_resource type="PackedScene" uid="uid://dc3ovgxnngx6n" path="res://scenes/up_wall.tscn" id="6_b121j"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c5751vv1idwpg" path="res://scenes/shotgun_item.tscn" id="10_olg7q"]
 [ext_resource type="PackedScene" uid="uid://c3tioxtr7v8dh" path="res://scenes/pistol_item.tscn" id="11_t1rx8"]
 [ext_resource type="PackedScene" uid="uid://bv3ct55fnbnla" path="res://scenes/safe_wall.tscn" id="12_8iemx"]
+[ext_resource type="Script" uid="uid://cl3plpplooptc" path="res://scenes/player_1.gd" id="14_fpun6"]
 [ext_resource type="PackedScene" uid="uid://bfnab7uukpfv4" path="res://pumpshotgun_item.tscn" id="14_wc255"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rd3vj"]
@@ -46,19 +46,12 @@ environment = SubResource("Environment_w7c3h")
 transform = Transform3D(-0.712828, -0.685945, 0.146135, 0.574144, -0.451075, 0.683294, -0.402784, 0.570974, 0.71537, 4.97952, 13.0937, 43.8568)
 shadow_enabled = true
 
-[node name="Player1" parent="." unique_id=831242102 groups=["player1", "player1or2"] instance=ExtResource("1_2q6dc")]
-transform = Transform3D(-0.0546561, -0.0281185, 1.05822, -0.0266208, 1.05933, 0.0267733, -1.05826, -0.0251955, -0.0553278, -3.61335, 0.375792, 0.101783)
-script = ExtResource("4_wc255")
-speed = 10.0
-health = 10.0
-gravity = 30.0
-
 [node name="Camera3D2" type="Camera3D" parent="." unique_id=950895378]
 transform = Transform3D(0.997987, -0.0631324, 0.00603932, 0.0381923, 0.674286, 0.737482, -0.0506313, -0.735767, 0.67534, -56.9943, 11.4164, -15.3534)
 current = true
 script = ExtResource("5_klq6b")
 
-[node name="Player2" parent="." unique_id=28546003 groups=["player1or2", "player2"] instance=ExtResource("2_w7c3h")]
+[node name="Player2" parent="." unique_id=28546003 groups=["player1or2", "player_2"] instance=ExtResource("2_w7c3h")]
 transform = Transform3D(0.0171336, -0.0253339, -1.07956, -0.0268618, 1.07935, -0.0257554, 1.07953, 0.0272597, 0.0164942, 0.0160754, 0.345314, -0.000463287)
 
 [node name="Moving walls" type="Node3D" parent="." unique_id=790124172]
@@ -312,3 +305,7 @@ transform = Transform3D(1.32838, -0.00666431, -0.388881, -0.160497, 0.249897, -0
 
 [node name="PumpShotgunItem" parent="." unique_id=1422726843 instance=ExtResource("14_wc255")]
 transform = Transform3D(0.999999, -2.15925e-08, 0, -2.18336e-09, 1, 7.27596e-12, -3.72529e-09, -2.49202e-10, 1, -1.44591, 5.33266, 9.2383)
+
+[node name="Player1" parent="." unique_id=2145171869 groups=["player1or2", "player_1"] instance=ExtResource("2_player1")]
+transform = Transform3D(1.05926, -0.026019737, 0.029849801, 0.026030522, 1.0596807, -1.683927e-05, -0.029840406, 0.0007498815, 1.0595801, -5.075491, 0.5952642, 0.26085037)
+speed = 10.0

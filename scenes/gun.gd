@@ -1,13 +1,11 @@
 extends Node3D
 
 @onready var marker_3d: Marker3D = $Marker3D
-@onready var player_1 := get_parent() as CharacterBody3D
 @onready var shotgun: Node3D = $Shotgun
 @onready var pistol: Node3D = $Pistol
 @export var bullet_scene: PackedScene
 @onready var muzzle: Node3D = $Marker3D
 @onready var pumpshotgun: Node3D = $pumpshotgun
-
 
 var CanChange := true
 var weapontype := 1
@@ -22,6 +20,7 @@ func _physics_process(delta: float) -> void:
 				player_shoot(player)
 	if Input.is_action_just_pressed("shoot2"):
 		if player != null:
+			printt( player, player.get_groups())
 			if player.is_in_group("player_2"):
 				player_shoot(player)
 	
